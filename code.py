@@ -10,7 +10,6 @@ import board
 import adafruit_hcsr04
 import digitalio
 
-
 # variables
 seconds_to_microseconds_conversion_number = 1000000
 sonar_delays = [2 / seconds_to_microseconds_conversion_number, 10 / seconds_to_microseconds_conversion_number]
@@ -19,7 +18,8 @@ distance = 0
 too_close = 20
 
 # setup
-
+led = digitalio.DigitalInOut(board.GP12)
+led.direction = digitalio.Direction.OUTPUT
 sonar = adafruit_hcsr04.HCSR04(trigger_pin = board.GP15, echo_pin = board.GP14)
 
 # loop
@@ -38,4 +38,5 @@ while True:
         led.value = False
 
     # The commented out code is not part of the actual code but is needed to get it working by uncommenting it and then recommenting it
-    #time.sleep(delay_between_sonar_cheeks)
+    time.sleep(delay_between_sonar_cheeks)
+    
