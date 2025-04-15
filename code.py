@@ -20,9 +20,7 @@ sonar = adafruit_hcsr04.HCSR04(trigger_pin = board.GP15, echo_pin = board.GP14)
 # loop
 while True:
     # Sonar gets the distance form object
-    #time.sleep(1)
     distance = sonar.distance
-    #time.sleep(1)
 
     print(f"Distance: {distance} cm")
 
